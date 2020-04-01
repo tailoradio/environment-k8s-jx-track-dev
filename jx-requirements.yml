@@ -29,13 +29,13 @@ environments:
   key: dev
   repository: environment-k8s-jx-track-dev
 - ingress:
-    domain: ""
-    externalDNS: false
+    domain: stage.tailoradio.it
+    externalDNS: true
     namespaceSubDomain: ""
     tls:
-      email: ""
-      enabled: false
-      production: false
+      email: martin@tailoradio.it
+      enabled: true
+      production: true
   key: staging
   repository: environment-k8s-jx-track-staging
 - ingress:
