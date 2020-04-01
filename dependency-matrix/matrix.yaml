@@ -5,3 +5,9 @@ dependencies:
   url: https://github.com/tailoradio/pintarsatu.git
   version: ""
   versionURL: ""
+- host: github.com
+  owner: tailoradio
+  repo: track-image
+  url: https://github.com/tailoradio/track-image.git
+  version: ""
+  versionURL: ""
