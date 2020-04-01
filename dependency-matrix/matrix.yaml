@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: tailoradio
+  repo: pintarsatu
+  url: https://github.com/tailoradio/pintarsatu.git
+  version: ""
+  versionURL: ""
