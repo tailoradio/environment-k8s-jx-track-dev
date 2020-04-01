@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: tailoradio
+    provider: github
+    repository: track-image
+  name: tailoradio-track-image
+spec:
+  description: Imported application for tailoradio/track-image
+  httpCloneURL: https://github.com/tailoradio/track-image.git
+  org: tailoradio
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: track-image
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/tailoradio/track-image.git
