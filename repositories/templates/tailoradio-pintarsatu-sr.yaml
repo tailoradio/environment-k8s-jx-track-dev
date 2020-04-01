@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: tailoradio
+    provider: github
+    repository: pintarsatu
+  name: tailoradio-pintarsatu
+spec:
+  description: Imported application for tailoradio/pintarsatu
+  httpCloneURL: https://github.com/tailoradio/pintarsatu.git
+  org: tailoradio
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: pintarsatu
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/tailoradio/pintarsatu.git
