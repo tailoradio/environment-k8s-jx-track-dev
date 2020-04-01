@@ -1,0 +1,10 @@
+adminUser:
+  password: local:k8s-jx-track/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: martin@tailoradio.it
+  token: local:k8s-jx-track/pipelineUser:token
+  username: tailoradio
+prow:
+  hmacToken: local:k8s-jx-track/prow:hmacToken

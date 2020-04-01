@@ -9,6 +9,8 @@ pipelineConfig:
         - name: pr-checks
           options:
             containerOptions:
+              name: ""
+              resources: {}
               volumeMounts:
               - mountPath: /builder/home/.jx/localSecrets/currentCluster
                 name: local-secrets
@@ -40,10 +42,20 @@ pipelineConfig:
         environment:
         - name: DEPLOY_NAMESPACE
           value: jx
+        - name: GIT_AUTHOR_NAME
+          value: tailoradio
+        - name: GIT_COMMITTER_NAME
+          value: tailoradio
+        - name: GIT_AUTHOR_EMAIL
+          value: martin@tailoradio.it
+        - name: GIT_COMMITTER_EMAIL
+          value: martin@tailoradio.it
         stages:
         - name: release
           options:
             containerOptions:
+              name: ""
+              resources: {}
               volumeMounts:
               - mountPath: /builder/home/.jx/localSecrets/currentCluster
                 name: local-secrets

@@ -1,35 +1,85 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/tailoradio/environment-k8s-jx-track-dev
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
+  chartRepository: http://bucketrepo/bucketrepo/charts/
+  clusterName: k8s-jx-track
+  devEnvApprovers:
+  - martinasia
+  environmentGitOwner: tailoradio
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: track-233210
   provider: gke
-  zone: ""
-gitops: true
+  registry: gcr.io
+  zone: europe-west3
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    cloud_dns_secret_name: external-dns-gcp-sa
+    domain: stage.tailoradio.it
+    externalDNS: true
+    namespaceSubDomain: -jx.
+    tls:
+      email: martin@tailoradio.it
+      enabled: true
+      production: true
+  key: dev
+  repository: environment-k8s-jx-track-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-k8s-jx-track-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-k8s-jx-track-production
+gitops: true
 ingress:
-  domain: ""
-  externalDNS: false
+  cloud_dns_secret_name: external-dns-gcp-sa
+  domain: stage.tailoradio.it
+  externalDNS: true
+  namespaceSubDomain: -jx.
   tls:
-    email: ""
-    enabled: false
-    production: false
+    email: martin@tailoradio.it
+    enabled: true
+    production: true
 kaniko: true
+repository: bucketrepo
 secretStorage: local
 storage:
+  backup:
+    enabled: true
+    url: gs://k8s-jx-track-backup-8ac82c6e-2280-47fb-b330-485b54f45f9
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://k8s-jx-track-logs-13f74760-e87a-4b14-9f42-a8d50dcaa20e
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://k8s-jx-track-reports-a9bc72d1-e0c1-45f9-80f2-6390c703a2
   repository:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://k8s-jx-track-repository-c14a1a11-ba33-4d31-a38b-02b2896
+vault: {}
+velero:
+  namespace: velero
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
+  ref: v1.0.408
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: prow
